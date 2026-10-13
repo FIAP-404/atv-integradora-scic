@@ -1,0 +1,2 @@
+# csv.DictWriter produces standard CSV CRLF line endings.
+*.csv whitespace=cr-at-eol
