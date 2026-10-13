@@ -116,7 +116,8 @@ class AplicacaoTest(unittest.TestCase):
 
     def test_interfaces_reais_continuam_pendentes(self):
         app = Aplicacao()
-        for acao in (app.analisar, lambda: app.prever(70), app.fila_alertas, lambda: app.buscar_prefixo('com')):
+        # Análise/previsão (Caetano) e fila (Joedson) já implementadas; resta a trie.
+        for acao in (lambda: app.buscar_prefixo('com'),):
             with self.assertRaises(NotImplementedError):
                 acao()
 
@@ -151,7 +152,7 @@ class AplicacaoTest(unittest.TestCase):
         texto = saida.getvalue()
         self.assertIn('Opção inválida', texto)
         self.assertIn('Não foi possível executar', texto)
-        self.assertIn('Caetano:', texto)
+        self.assertIn('inclinacao_ms_por_pct', texto)  # opção 4: resumo real de Caetano
         self.assertIn('Mylena:', texto)
         self.assertIn('PENDENTE', texto)
         self.assertIn('6.6780 W', texto)

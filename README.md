@@ -8,7 +8,7 @@ Projeto Integrador da Fase 6 da FIAP: Sistema de Comunicação Interplanetária 
 |---|---|---|
 | Dados simulados, leitura/validação, consulta básica, menu e estrutura de integração | Fernando | Implementados e testados |
 | Bases numéricas, entradas/saídas e eletricidade básica | Fernando | Implementados, documentados e testados |
-| Indicadores, erros, previsão e métricas | Caetano | Interface pendente; sem resultados de modelo publicados |
+| Indicadores, erros, previsão e métricas | Caetano | Implementados, documentados e testados |
 | Heap, prioridades e gestão inteligente | Joedson | Interface pendente |
 | Trie e reflexão social/cultural/sustentável | Mylena | Interface pendente |
 | Relatório conjunto, demonstração completa e ZIP final | Todos | Pendentes de integração e revisão |
@@ -45,7 +45,8 @@ O comando recusa um destino que já existe. `gerar()` é a função de geração
 - `codigo_fonte.py`: entrada principal e integração.
 - `dados.py`, `dados_aurora_siger.csv`, `gerar_dados.py`: parte de dados de Fernando.
 - `dispositivos.py`: conversões e eletricidade.
-- `modulos/analise.py`, `modulos/alertas.py`, `modulos/consultas.py`: somente assinaturas/docstrings e `NotImplementedError`.
+- `modulos/analise.py`: análise de Caetano (indicadores, erros, modelo e métricas); testes em `tests/test_caetano.py` e seção em [docs/relatorio_caetano.md](docs/relatorio_caetano.md).
+- `modulos/alertas.py`, `modulos/consultas.py`: somente assinaturas/docstrings e `NotImplementedError`.
 - `tests/test_fernando.py`: testes de Fernando; mocks verificam encaminhamento das interfaces, não algoritmos dos colegas.
 - [docs/interfaces.md](docs/interfaces.md): campos, unidades, assinaturas e dependências.
 - [docs/relatorio_fernando.md](docs/relatorio_fernando.md): seção técnica própria de Fernando.

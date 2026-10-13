@@ -9,8 +9,7 @@ from dispositivos import converter_codigo, calcular_eletricidade
 from modulos import analise, alertas, consultas
 
 BASE = Path(__file__).resolve().parent
-PENDENCIAS = {'Caetano': 'indicadores, erros, modelo, métricas e documentação/testes do módulo',
-              'Joedson': 'heap, prioridades, gestão inteligente e documentação/testes do módulo',
+PENDENCIAS = {'Joedson': 'heap, prioridades, gestão inteligente e documentação/testes do módulo',
               'Mylena': 'trie, reflexão social/cultural/sustentável e documentação/testes do módulo'}
 
 
@@ -85,7 +84,7 @@ def demonstrar(app):
 
 def menu(app):
     while True:
-        print('\n1 Carregar CSV | 2 Consultar registros | 3 Bases e eletricidade\n4 Análise [Caetano pendente] | 5 Previsão [Caetano pendente]\n6 Alertas heap [Joedson pendente; depende da análise]\n7 Busca trie [Mylena pendente] | 8 Estado da integração | 0 Sair')
+        print('\n1 Carregar CSV | 2 Consultar registros | 3 Bases e eletricidade\n4 Análise [Caetano] | 5 Previsão [Caetano]\n6 Alertas heap [Joedson pendente; depende da análise]\n7 Busca trie [Mylena pendente] | 8 Estado da integração | 0 Sair')
         try:
             opcao = input('Opção: ').strip()
             if opcao == '0':

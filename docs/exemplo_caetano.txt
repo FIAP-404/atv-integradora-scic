@@ -1,0 +1,43 @@
+# Saída real de: python3 -c "from dados import carregar; from modulos.analise import demonstrar; demonstrar(carregar('dados_aurora_siger.csv'))"
+
+Registros: 180 | ciclos: 30 | status: {'ativo': 165, 'alerta': 14, 'manutencao': 1}
+Disponibilidade (status ativo): 91.67%
+Latência média: 189.263 ms (mín 100.224, máx 323.304)
+
+Indicadores por módulo:
+  Agricultura     carga média  58.51% | latência média  197.856 ms | máx  291.333 ms | alertas 2
+  Comunicação     carga média  56.66% | latência média  178.858 ms | máx  252.997 ms | alertas 2
+  Dados           carga média  54.78% | latência média  195.696 ms | máx  252.261 ms | alertas 2
+  Habitação       carga média  55.13% | latência média  184.363 ms | máx  274.029 ms | alertas 2
+  Laboratório     carga média  60.88% | latência média  201.170 ms | máx  323.304 ms | alertas 3
+  Suporte Médico  carga média  52.86% | latência média  177.634 ms | máx  274.047 ms | alertas 3
+
+Divisão: {'treino': [1, 18], 'validacao': [19, 24], 'teste': [25, 30]} -> {'treino': 108, 'validacao': 36, 'teste': 36} registros
+Limpeza: treino usa só status 'ativo'; 9 registros de pico/manutenção ficaram fora do ajuste
+
+Modelo (regressao_linear_simples): latência = 1.7945 x carga + 82.0437 ms
+Faixa de carga do treino: 15.67% a 94.95%
+Validação: RMSE reta 8.315 ms x linha de base (média) 43.066 ms -> escolhido: reta
+
+Métricas (nominal = só status ativo; todos = inclui picos):
+  treino    nominal n= 99 | MAE 7.873 ms | MSE 85.476 ms² | RMSE 9.245 ms | R² 0.9456
+  treino    todos   n=108 | MAE 12.478 ms | MSE 436.873 ms² | RMSE 20.902 ms | R² 0.771
+  validacao nominal n= 33 | MAE 7.25 ms | MSE 69.139 ms² | RMSE 8.315 ms | R² 0.9617
+  validacao todos   n= 36 | MAE 12.61 ms | MSE 500.003 ms² | RMSE 22.361 ms | R² 0.7586
+  teste     nominal n= 33 | MAE 5.737 ms | MSE 58.726 ms² | RMSE 7.663 ms | R² 0.9618
+  teste     todos   n= 36 | MAE 11.173 ms | MSE 479.273 ms² | RMSE 21.892 ms | R² 0.7632
+
+Exemplos de registros do teste:
+  #145 Habitação       ciclo 25 [ativo] carga 29.28% | observada 134.275 | prevista 134.587 | erro 0.312 ms (0.2%)
+  #146 Agricultura     ciclo 25 [ativo] carga 54.7% | observada 188.498 | prevista 180.203 | erro 8.295 ms (4.4%)
+  #147 Comunicação     ciclo 25 [ativo] carga 17.46% | observada 109.559 | prevista 113.376 | erro 3.817 ms (3.5%)
+  #151 Habitação       ciclo 26 [alerta] carga 73.96% | observada 274.029 | prevista 214.765 | erro 59.264 ms (21.6%)
+  #161 Suporte Médico  ciclo 27 [alerta] carga 33.35% | observada 217.411 | prevista 141.89 | erro 75.521 ms (34.7%)
+
+Previsões (prever):
+  carga  20% -> 117.934 ms
+  carga  50% -> 171.769 ms
+  carga  90% -> 243.549 ms
+  carga 100% -> 261.494 ms  <- extrapolação
+
+Ponto flutuante: 0.1 + 0.2 = 0.30000000000000004; math.isclose(0.1 + 0.2, 0.3) = True
