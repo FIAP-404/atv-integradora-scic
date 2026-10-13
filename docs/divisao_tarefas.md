@@ -11,4 +11,4 @@ Cada integrante documenta e testa seu módulo. Relatório final e revisão são 
 
 Sequência: aprovar contrato → CSV disponível → frentes em paralelo por cada integrante → integrar análise/heap/trie → reunir seções e testar o fluxo → ensaiar/gravar vídeo real inferior a 5 minutos → conferir URL Não listado e ZIP → entrega pessoal no portal. A gravação/publicação e a submissão não foram feitas.
 
-Apenas a parte de Fernando foi retomada nesta etapa. Não há delegação automatizada aos outros integrantes nem comunicação enviada por este repositório.
+Caetano entregou sua parte em `modulos/analise.py`, com testes em `tests/test_caetano.py` e seção técnica em `docs/relatorio_caetano.md`. Cada integrante atualiza o estado da própria parte. Não há delegação automatizada aos outros integrantes nem comunicação enviada por este repositório.

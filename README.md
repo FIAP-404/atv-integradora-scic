@@ -1,6 +1,6 @@
 # SCIC — parte de Fernando
 
-Projeto Integrador da Fase 6 da FIAP: Sistema de Comunicação Interplanetária da Colônia Aurora Siger. **Este repositório contém somente a parte de Fernando e contratos de integração. O trabalho completo ainda está pendente.**
+Projeto Integrador da Fase 6 da FIAP: Sistema de Comunicação Interplanetária da Colônia Aurora Siger. **Este repositório reúne as partes já entregues e os contratos de integração das partes pendentes; o estado de cada uma está na tabela abaixo. O trabalho completo ainda está pendente.**
 
 ## Estado
 
@@ -29,7 +29,8 @@ A base padrão fica ao lado do código e funciona independentemente do diretóri
 
 - Opção 2: consulta simples por trecho do nome e ciclo. **Não é busca trie.**
 - Opção 3: sensor em decimal/binário/hexadecimal, potência P=V×I e resistência equivalente sob hipótese resistiva.
-- Opções 4–7: pontos de integração dos colegas. Hoje informam explicitamente o que está pendente, sem simular resultado de modelo, heap ou trie.
+- Opções 4–5: análise de Caetano. A opção 4 mostra o resumo (indicadores, divisão dos dados, modelo e métricas) e a opção 5 prevê a latência em ms para uma carga de 0 a 100%.
+- Opções 6–7: pontos de integração de Joedson (heap) e Mylena (trie). Uma parte ainda não entregue informa explicitamente a pendência, sem simular resultado.
 - Opção 8: estado do projeto. Opção 0: sair.
 
 Para reproduzir a mesma base preservando a entregue:

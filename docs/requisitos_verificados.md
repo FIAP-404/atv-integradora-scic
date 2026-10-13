@@ -18,4 +18,4 @@ Estado observado: entrega e avaliação pendentes, sem última modificação; pr
 
 A seção 3 referencia duas imagens em `/pluginfile.php/1569499/mod_assign/sectionhtml/11232/`, `image.png` e `image%20%281%29.png`. Estavam quebradas e a abertura autenticada retornou “Sinto muito, o arquivo não foi encontrado”. Os pesos da rubrica não puderam ser confirmados, e não foram inventados. Nenhuma regra específica de IA foi identificada no texto acessível; verificar também normas institucionais externas.
 
-Esta publicação cobre somente os requisitos atribuídos a Fernando, com contratos pendentes para os colegas. Não é ZIP final, relatório completo nem submissão FIAP.
+Esta publicação cobre os requisitos atribuídos a Fernando e a Caetano (indicadores, erros absoluto e relativo, ponto flutuante, previsão simples e MAE/MSE/RMSE/R² com interpretação); as demais partes seguem os contratos de `docs/interfaces.md`. Não é ZIP final, relatório completo nem submissão FIAP.

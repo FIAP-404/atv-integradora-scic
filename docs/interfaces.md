@@ -1,6 +1,6 @@
 # Contrato de integração — proposta v1
 
-Somente a infraestrutura e funções de Fernando estão implementadas. Os contratos dos colegas são pontos explícitos de integração e continuam levantando `NotImplementedError`. Cada responsável implementa, documenta e testa seu próprio módulo.
+A infraestrutura de Fernando e a análise de Caetano estão implementadas. Os contratos ainda não entregues são pontos explícitos de integração e levantam `NotImplementedError`. Cada responsável implementa, documenta e testa seu próprio módulo.
 
 ## Registro base
 
@@ -30,6 +30,8 @@ Manter ids e campos de origem nos registros de saída; acrescentar `latencia_pre
 
 `prever(carga_pct, resumo) -> float` em ms. O menu valida entrada finita 0–100%; Caetano deve documentar faixa de treino, extrapolação e limitações e validar saídas do modelo. O objeto resumo deve ser serializável em JSON ou suas estruturas devem ser adaptadas por acordo do grupo.
 
+**Implementado** (detalhes em `docs/relatorio_caetano.md`): divisão temporal de 60/20/20 dos ciclos presentes (nesta base, 1–18, 19–24 e 25–30); treino só com status `ativo`; reta escolhida contra a linha de base (média do treino) na validação; erro relativo com denominador na latência observada (`None` quando ela é zero); cada registro de saída também recebe `conjunto` (treino, validacao ou teste). O modelo fica em `resumo["modelo"]` (`inclinacao_ms_por_pct`, `intercepto_ms`, `faixa_treino_carga_pct`), e `prever` reproduz exatamente a `latencia_prevista_ms` dos registros.
+
 ## Joedson — modulos/alertas.py
 
 `priorizar(registros_analisados) -> fila`.
@@ -52,4 +54,4 @@ Retornar **ids do campo id**, não posições na lista. Proposta: indexar módul
 
 ## Verificação antes de integrar
 
-Cada responsável entrega função executável, teste e documentação do próprio módulo; o teste do menu com mocks confirma somente passagem de argumentos. Depois, todos executam suas suítes juntas e fazem uma demonstração integrada. Conferir ausência de vazamento treino/teste, ordem de urgência, ids da trie, unidades e explicação das limitações. Consolidar o relatório em conjunto, sem atribuir sua escrita à Mylena. Nenhuma parte de colegas é declarada pronta neste repositório.
+Cada responsável entrega função executável, teste e documentação do próprio módulo; o teste do menu com mocks confirma somente passagem de argumentos. Depois, todos executam suas suítes juntas e fazem uma demonstração integrada. Conferir ausência de vazamento treino/teste, ordem de urgência, ids da trie, unidades e explicação das limitações. Consolidar o relatório em conjunto, sem atribuir sua escrita à Mylena. A análise de Caetano está entregue; as demais partes têm o estado declarado por seus responsáveis.
