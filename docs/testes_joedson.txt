@@ -1,0 +1,31 @@
+test_cli_de_outro_diretorio_e_erro_legivel (test_fernando.AplicacaoTest.test_cli_de_outro_diretorio_e_erro_legivel) ... ok
+test_demo_e_menu_tratam_pendencias_e_entrada_invalida (test_fernando.AplicacaoTest.test_demo_e_menu_tratam_pendencias_e_entrada_invalida) ... ok
+test_encaminha_interfaces_sem_implementar_modulos (test_fernando.AplicacaoTest.test_encaminha_interfaces_sem_implementar_modulos) ... ok
+test_interfaces_reais_continuam_pendentes (test_fernando.AplicacaoTest.test_interfaces_reais_continuam_pendentes) ... ok
+test_recarregar_transacional_e_invalida_cache (test_fernando.AplicacaoTest.test_recarregar_transacional_e_invalida_cache) ... ok
+test_base_coerente_e_reproduzivel (test_fernando.DadosTest.test_base_coerente_e_reproduzivel) ... ok
+test_consulta_por_modulo_e_ciclo (test_fernando.DadosTest.test_consulta_por_modulo_e_ciclo) ... ok
+test_ordena_sem_modificar_medicoes (test_fernando.DadosTest.test_ordena_sem_modificar_medicoes) ... ok
+test_rejeita_campos_invalidos_com_numero_de_linha (test_fernando.DadosTest.test_rejeita_campos_invalidos_com_numero_de_linha) ... ok
+test_rejeita_duplicado_vazio_e_formato_inconsistente (test_fernando.DadosTest.test_rejeita_duplicado_vazio_e_formato_inconsistente) ... ok
+test_zero_observado_e_corrente_sao_validos (test_fernando.DadosTest.test_zero_observado_e_corrente_sao_validos) ... ok
+test_conversao_conhecida_e_zero (test_fernando.DispositivosTest.test_conversao_conhecida_e_zero) ... ok
+test_potencia_resistencia_e_corrente_zero (test_fernando.DispositivosTest.test_potencia_resistencia_e_corrente_zero) ... ok
+test_atender_rejeitado_devolve_a_fila (test_joedson.TestContratoComBaseReal.test_atender_rejeitado_devolve_a_fila) ... ok
+test_gestao_executa_sobre_a_base (test_joedson.TestContratoComBaseReal.test_gestao_executa_sobre_a_base) ... ok
+test_menu_do_fernando_retira_mais_urgente (test_joedson.TestContratoComBaseReal.test_menu_do_fernando_retira_mais_urgente) ... ok
+test_priorizar_respeita_contrato_e_nao_altera_entrada (test_joedson.TestContratoComBaseReal.test_priorizar_respeita_contrato_e_nao_altera_entrada) ... ok
+test_todos_os_registros_em_alerta_entram_na_fila (test_joedson.TestContratoComBaseReal.test_todos_os_registros_em_alerta_entram_na_fila) ... ok
+test_construir_max_heap_reproduz_exemplo_da_apostila (test_joedson.TestHeap.test_construir_max_heap_reproduz_exemplo_da_apostila) ... ok
+test_fila_vazia_lanca_index_error (test_joedson.TestHeap.test_fila_vazia_lanca_index_error) ... ok
+test_heap_faz_menos_comparacoes_que_lista_e_mesma_ordem (test_joedson.TestHeap.test_heap_faz_menos_comparacoes_que_lista_e_mesma_ordem) ... ok
+test_retirada_sempre_em_ordem_de_urgencia (test_joedson.TestHeap.test_retirada_sempre_em_ordem_de_urgencia) ... ok
+test_criterios_somados_e_justificativa (test_joedson.TestPrioridade.test_criterios_somados_e_justificativa) ... ok
+test_desvio_e_tensao_detectam_anomalia_com_status_ativo (test_joedson.TestPrioridade.test_desvio_e_tensao_detectam_anomalia_com_status_ativo) ... ok
+test_empate_favorece_modulo_mais_essencial (test_joedson.TestPrioridade.test_empate_favorece_modulo_mais_essencial) ... ok
+test_prevista_ausente_ou_zero_nao_quebra (test_joedson.TestPrioridade.test_prevista_ausente_ou_zero_nao_quebra) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.192s
+
+OK

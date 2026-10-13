@@ -1,0 +1,93 @@
+# Saída real de: python3 -c "from tests.test_joedson import analise_provisoria; from dados import carregar; from modulos.alertas import demonstrar; demonstrar(analise_provisoria(carregar('dados_aurora_siger.csv')))"
+# ATENÇÃO: usa a análise PROVISÓRIA de teste (prevista = 80 + 1,8 x carga), não o modelo do Caetano.
+
+Registros analisados recebidos: 180
+
+=== FILA DE PRIORIDADE: 16 alertas ===
+  posição 0 (pai -) | [CRÍTICO] 90.0 pts | #117 Comunicação ciclo 20 - Pico simulado de latência
+  posição 1 (pai 0) | [CRÍTICO] 88.3 pts | #5 Suporte Médico ciclo 1 - Pico simulado de latência
+  posição 2 (pai 0) | [CRÍTICO] 88.0 pts | #161 Suporte Médico ciclo 27 - Pico simulado de latência
+  posição 3 (pai 1) | [CRÍTICO] 82.9 pts | #83 Suporte Médico ciclo 14 - Pico simulado de latência
+  posição 4 (pai 1) | [CRÍTICO] 83.9 pts | #39 Comunicação ciclo 7 - Pico simulado de latência
+  posição 5 (pai 2) | [CRÍTICO] 78.6 pts | #144 Dados ciclo 24 - Pico simulado de latência
+  posição 6 (pai 2) | [CRÍTICO] 81.2 pts | #73 Habitação ciclo 13 - Pico simulado de latência
+  posição 7 (pai 3) | [ALTO] 65.9 pts | #22 Laboratório ciclo 4 - Pico simulado de latência
+  ... mais 8 alerta(s) no vetor
+Propriedade de max-heap válida? True
+
+>>> ALERTA MAIS URGENTE: [CRÍTICO] 90.0 pts | #117 Comunicação ciclo 20 - Pico simulado de latência
+    Justificativa: status alerta (+40); módulo comunicacao (+25); latência 51% acima do previsto (+20.0); aguardando há 10 ciclo(s) (+5)
+    Ação sugerida: Reagendar transmissões não urgentes e, se houver, comutar para enlace redundante
+    Decisão: CONFIRMADA pelo operador
+    Alertas restantes: 15
+
+>>> ALERTA MAIS URGENTE: [CRÍTICO] 88.3 pts | #5 Suporte Médico ciclo 1 - Pico simulado de latência
+    Justificativa: status alerta (+40); módulo suporte medico (+25); latência 46% acima do previsto (+18.3); aguardando há 29 ciclo(s) (+5)
+    Ação sugerida: Priorizar o canal da enfermaria e verificar a alimentação de 12 V
+    Decisão: REJEITADA - o alerta voltou para a fila
+    Alertas restantes: 15
+
+=== PASSO A PASSO DO MAX-HEAP (exemplo do Cap. 4) ===
+inserir 35 -> vetor [35]
+inserir 12 -> vetor [35, 12]
+inserir 90 -> vetor [90, 12, 35]
+inserir 4 -> vetor [90, 12, 35, 4]
+inserir 77 -> vetor [90, 77, 35, 4, 12]
+retirar 90 -> vetor [77, 12, 35, 4]
+retirar 77 -> vetor [35, 12, 4]
+retirar 35 -> vetor [12, 4]
+retirar 12 -> vetor [4]
+retirar 4 -> vetor []
+
+=== HEAP x LISTA SIMPLES (inserir n alertas e atender todos) ===
+n = 100: heap 1034 | lista 4950 comparações | lista/heap = 4.8x | mesma ordem: True
+n = 500: heap 7489 | lista 124750 comparações | lista/heap = 16.7x | mesma ordem: True
+n = 1000: heap 17029 | lista 499500 comparações | lista/heap = 29.3x | mesma ordem: True
+n = 2000: heap 38065 | lista 1999000 comparações | lista/heap = 52.5x | mesma ordem: True
+Heap: O(log n) por operação -> O(n log n). Lista: O(n) por atendimento -> O(n²).
+
+=== MONITORAMENTO CONTÍNUO ===
+Ciclo 1: +1 alerta(s) | fila com 1 | mais urgente: #5 Suporte Médico (88.3 pts)
+Ciclo 4: +2 alerta(s) | fila com 3 | mais urgente: #5 Suporte Médico (88.3 pts)
+Ciclo 7: +1 alerta(s) | fila com 4 | mais urgente: #5 Suporte Médico (88.3 pts)
+Ciclo 10: +1 alerta(s) | fila com 5 | mais urgente: #5 Suporte Médico (88.3 pts)
+Ciclo 11: +1 alerta(s) | fila com 6 | mais urgente: #5 Suporte Médico (88.3 pts)
+Ciclo 13: +1 alerta(s) | fila com 7 | mais urgente: #5 Suporte Médico (88.3 pts)
+Ciclo 14: +1 alerta(s) | fila com 8 | mais urgente: #5 Suporte Médico (88.3 pts)
+Ciclo 17: +2 alerta(s) | fila com 10 | mais urgente: #5 Suporte Médico (88.3 pts)
+Ciclo 20: +1 alerta(s) | fila com 11 | mais urgente: #117 Comunicação (90.0 pts)
+Ciclo 23: +1 alerta(s) | fila com 12 | mais urgente: #117 Comunicação (90.0 pts)
+Ciclo 24: +1 alerta(s) | fila com 13 | mais urgente: #117 Comunicação (90.0 pts)
+Ciclo 26: +1 alerta(s) | fila com 14 | mais urgente: #117 Comunicação (90.0 pts)
+Ciclo 27: +1 alerta(s) | fila com 15 | mais urgente: #117 Comunicação (90.0 pts)
+Ciclo 30: +1 alerta(s) | fila com 16 | mais urgente: #117 Comunicação (90.0 pts)
+
+Detecções antecipadas (status 'ativo', mas latência > 20% acima do previsto): 1
+  #24 Dados ciclo 4: 22% acima
+
+=== MANUTENÇÃO PREDITIVA (desvio da latência em relação à prevista) ===
+Habitação: desvio atual 2.2% | taxa 0.8 p.p./ciclo | estável
+Agricultura: desvio atual 6.8% | taxa 1.2 p.p./ciclo | estável
+Comunicação: desvio atual -2.6% | taxa 0.8 p.p./ciclo | estável
+Laboratório: desvio atual 32.7% | taxa 10.7 p.p./ciclo | pico recente sem tendência: acompanhar
+Suporte Médico: desvio atual -4.7% | taxa -20.0 p.p./ciclo | estável
+Dados: desvio atual 11.6% | taxa 1.8 p.p./ciclo | estável
+
+=== ENLACE DE COMUNICAÇÃO E REDUNDÂNCIA ===
+Ciclos analisados: 30 | ciclos com anomalia: 2
+Último ciclo (30): 194.5 ms, desvio -2.6%, status ativo
+Recomendação: Enlace normal agora, mas com anomalias no histórico: justificar um enlace redundante
+
+=== MICRORREDE (ciclo 30, 100% da demanda disponível) ===
+Demanda: 48.36 W | capacidade: 48.36 W
+Modo NORMAL: nenhum corte necessário.
+Preservados: suporte médico, comunicação e habitação.
+
+=== MICRORREDE (ciclo 30, 80% da demanda disponível) ===
+Demanda: 48.36 W | capacidade: 38.69 W
+Modo de CONTINGÊNCIA: cargas não essenciais em modo econômico:
+  - Laboratório: -4.83 W
+  - Agricultura: -3.08 W
+  - Dados: -3.52 W
+Demanda após os cortes: 36.93 W
+Preservados: suporte médico, comunicação e habitação.
