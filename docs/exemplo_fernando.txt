@@ -1,0 +1,21 @@
+SCIC — PARTE DE FERNANDO — dados inteiramente simulados
+Base carregada e validada: 180 registros.
+#1 | ciclo 1 | Habitação | sensor 160 | carga 41.30% | latência observada 166.919 ms | ativo
+#2 | ciclo 1 | Agricultura | sensor 176 | carga 88.47% | latência observada 245.914 ms | ativo
+#3 | ciclo 1 | Comunicação | sensor 192 | carga 78.19% | latência observada 212.842 ms | ativo
+180 encontrados; exibindo até 3.
+
+Consulta simples: Comunicação, ciclo 1 (a trie ainda está pendente).
+#3 | ciclo 1 | Comunicação | sensor 192 | carga 78.19% | latência observada 212.842 ms | ativo
+1 encontrados; exibindo até 8.
+Dispositivo simulado do registro #1 (Habitação):
+{"decimal": 160, "binario": "10100000", "hexadecimal": "A0"}
+P = 12.0 V × 0.5565 A = 6.6780 W
+R equivalente (hipótese resistiva): 21.5633 Ω
+Entrada: sensores/medidores simulados em CSV. Saída: terminal; rede/USB são interfaces conceituais.
+Potência elétrica de entrada; não potência radiada nem energia consumida. Não há enlace físico real.
+Estado: parte de Fernando implementada; projeto completo PENDENTE.
+Caetano: indicadores, erros, modelo, métricas e documentação/testes do módulo.
+Joedson: heap, prioridades, gestão inteligente e documentação/testes do módulo.
+Mylena: trie, reflexão social/cultural/sustentável e documentação/testes do módulo.
+Todos documentam e testam sua própria parte. Integração final, relatório conjunto e vídeo ainda pendentes.
