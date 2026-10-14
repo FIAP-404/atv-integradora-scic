@@ -1,9 +1,10 @@
 """Testes de Joedson: heap, prioridades e gestão (modulos/alertas.py).
 
-A análise de Caetano ainda não está pronta. Para testar sem esperar, usamos
-uma ANÁLISE PROVISÓRIA (somente nos testes): latencia_prevista_ms = 80 + 1,8 x carga,
+Para testar o heap isoladamente, preservamos uma fixture de análise
+(somente nos testes): latencia_prevista_ms = 80 + 1,8 x carga,
 a parte determinística da regra de geração descrita em docs/relatorio_fernando.md.
-Ela NÃO substitui o modelo de Caetano.
+Ela NÃO substitui o modelo integrado de Caetano. A demonstração publicada usa
+analise.analisar; esta fixture mantém os cenários unitários originais de Joedson.
 """
 import copy
 import io

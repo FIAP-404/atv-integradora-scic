@@ -1,31 +1,29 @@
-# Saída real de: python3 -m unittest tests.test_caetano -v
-
-test_base_vazia_e_rejeitada (tests.test_caetano.AnaliseTest.test_base_vazia_e_rejeitada) ... ok
-test_divisao_acompanha_a_base_carregada (tests.test_caetano.AnaliseTest.test_divisao_acompanha_a_base_carregada) ... ok
-test_erro_relativo_none_quando_observada_zero (tests.test_caetano.AnaliseTest.test_erro_relativo_none_quando_observada_zero) ... ok
-test_indicador_conta_ciclos_distintos (tests.test_caetano.AnaliseTest.test_indicador_conta_ciclos_distintos) ... ok
-test_limpeza_tira_pico_do_treino (tests.test_caetano.AnaliseTest.test_limpeza_tira_pico_do_treino) ... ok
-test_nao_altera_entrada_e_preserva_campos (tests.test_caetano.AnaliseTest.test_nao_altera_entrada_e_preserva_campos) ... ok
-test_teste_nao_influencia_o_modelo (tests.test_caetano.AnaliseTest.test_teste_nao_influencia_o_modelo) ... ok
-test_validacao_cai_para_media_se_reta_for_pior (tests.test_caetano.AnaliseTest.test_validacao_cai_para_media_se_reta_for_pior) ... ok
-test_demonstrar_aceita_latencia_zero_e_nao_repete_exemplo (tests.test_caetano.BaseRealTest.test_demonstrar_aceita_latencia_zero_e_nao_repete_exemplo) ... ok
-test_divisao_e_metricas_coerentes (tests.test_caetano.BaseRealTest.test_divisao_e_metricas_coerentes) ... ok
-test_modelo_proximo_da_regra_de_geracao (tests.test_caetano.BaseRealTest.test_modelo_proximo_da_regra_de_geracao) ... ok
-test_picos_tem_erro_relativo_alto (tests.test_caetano.BaseRealTest.test_picos_tem_erro_relativo_alto) ... ok
-test_prever_reproduz_a_previsao_de_cada_registro (tests.test_caetano.BaseRealTest.test_prever_reproduz_a_previsao_de_cada_registro) ... ok
-test_resumo_e_serializavel_em_json (tests.test_caetano.BaseRealTest.test_resumo_e_serializavel_em_json) ... ok
-test_selecao_e_metricas_de_validacao_concordam (tests.test_caetano.BaseRealTest.test_selecao_e_metricas_de_validacao_concordam) ... ok
-test_erro_relativo_usa_observada_e_trata_zero (tests.test_caetano.MatematicaTest.test_erro_relativo_usa_observada_e_trata_zero) ... ok
-test_metricas_casos_limite (tests.test_caetano.MatematicaTest.test_metricas_casos_limite) ... ok
-test_metricas_conferidas_a_mao (tests.test_caetano.MatematicaTest.test_metricas_conferidas_a_mao) ... ok
-test_reta_confere_com_a_biblioteca_padrao (tests.test_caetano.MatematicaTest.test_reta_confere_com_a_biblioteca_padrao) ... ok
-test_reta_exige_cargas_diferentes (tests.test_caetano.MatematicaTest.test_reta_exige_cargas_diferentes) ... ok
-test_reta_recupera_coeficientes_exatos (tests.test_caetano.MatematicaTest.test_reta_recupera_coeficientes_exatos) ... ok
-test_previsao_usa_o_modelo (tests.test_caetano.PreverTest.test_previsao_usa_o_modelo) ... ok
-test_rejeita_carga_invalida_e_resumo_sem_modelo (tests.test_caetano.PreverTest.test_rejeita_carga_invalida_e_resumo_sem_modelo) ... ok
-test_rejeita_saida_negativa (tests.test_caetano.PreverTest.test_rejeita_saida_negativa) ... ok
+test_base_vazia_e_rejeitada (test_caetano.AnaliseTest.test_base_vazia_e_rejeitada) ... ok
+test_divisao_acompanha_a_base_carregada (test_caetano.AnaliseTest.test_divisao_acompanha_a_base_carregada) ... ok
+test_erro_relativo_none_quando_observada_zero (test_caetano.AnaliseTest.test_erro_relativo_none_quando_observada_zero) ... ok
+test_indicador_conta_ciclos_distintos (test_caetano.AnaliseTest.test_indicador_conta_ciclos_distintos) ... ok
+test_limpeza_tira_pico_do_treino (test_caetano.AnaliseTest.test_limpeza_tira_pico_do_treino) ... ok
+test_nao_altera_entrada_e_preserva_campos (test_caetano.AnaliseTest.test_nao_altera_entrada_e_preserva_campos) ... ok
+test_teste_nao_influencia_o_modelo (test_caetano.AnaliseTest.test_teste_nao_influencia_o_modelo) ... ok
+test_validacao_cai_para_media_se_reta_for_pior (test_caetano.AnaliseTest.test_validacao_cai_para_media_se_reta_for_pior) ... ok
+test_demonstrar_aceita_latencia_zero_e_nao_repete_exemplo (test_caetano.BaseRealTest.test_demonstrar_aceita_latencia_zero_e_nao_repete_exemplo) ... ok
+test_divisao_e_metricas_coerentes (test_caetano.BaseRealTest.test_divisao_e_metricas_coerentes) ... ok
+test_modelo_proximo_da_regra_de_geracao (test_caetano.BaseRealTest.test_modelo_proximo_da_regra_de_geracao) ... ok
+test_picos_tem_erro_relativo_alto (test_caetano.BaseRealTest.test_picos_tem_erro_relativo_alto) ... ok
+test_prever_reproduz_a_previsao_de_cada_registro (test_caetano.BaseRealTest.test_prever_reproduz_a_previsao_de_cada_registro) ... ok
+test_resumo_e_serializavel_em_json (test_caetano.BaseRealTest.test_resumo_e_serializavel_em_json) ... ok
+test_selecao_e_metricas_de_validacao_concordam (test_caetano.BaseRealTest.test_selecao_e_metricas_de_validacao_concordam) ... ok
+test_erro_relativo_usa_observada_e_trata_zero (test_caetano.MatematicaTest.test_erro_relativo_usa_observada_e_trata_zero) ... ok
+test_metricas_casos_limite (test_caetano.MatematicaTest.test_metricas_casos_limite) ... ok
+test_metricas_conferidas_a_mao (test_caetano.MatematicaTest.test_metricas_conferidas_a_mao) ... ok
+test_reta_confere_com_a_biblioteca_padrao (test_caetano.MatematicaTest.test_reta_confere_com_a_biblioteca_padrao) ... ok
+test_reta_exige_cargas_diferentes (test_caetano.MatematicaTest.test_reta_exige_cargas_diferentes) ... ok
+test_reta_recupera_coeficientes_exatos (test_caetano.MatematicaTest.test_reta_recupera_coeficientes_exatos) ... ok
+test_previsao_usa_o_modelo (test_caetano.PreverTest.test_previsao_usa_o_modelo) ... ok
+test_rejeita_carga_invalida_e_resumo_sem_modelo (test_caetano.PreverTest.test_rejeita_carga_invalida_e_resumo_sem_modelo) ... ok
+test_rejeita_saida_negativa (test_caetano.PreverTest.test_rejeita_saida_negativa) ... ok
 
 ----------------------------------------------------------------------
-Ran 24 tests in 0.031s
+Ran 24 tests in 0.009s
 
 OK

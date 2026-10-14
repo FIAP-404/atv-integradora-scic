@@ -1,6 +1,6 @@
 # Enunciado verificado
 
-Fonte: https://on.fiap.com.br/mod/assign/view.php?id=658154&returnto=conteudocurso — lida em 12/10/2026 no navegador do Mac, usando sessão já autenticada.
+Fonte: https://on.fiap.com.br/mod/assign/view.php?id=658154&returnto=conteudocurso — relida em 13/10/2026 às 22h27 de Brasília no navegador do Mac, usando sessão já autenticada.
 
 - SCIC, Fase 6: dados simulados da Aurora Siger, código Python, menu terminal ou Notebook organizado e exemplos reais de execução.
 - Base por módulos em CSV/TXT/JSON; estruturas Python/NumPy/Pandas permitidas; pelo menos um indicador operacional/comunicação.
@@ -16,6 +16,6 @@ Fonte: https://on.fiap.com.br/mod/assign/view.php?id=658154&returnto=conteudocur
 
 Estado observado: entrega e avaliação pendentes, sem última modificação; prazo 13/10/2026 às 23h59 (portal não explicitou fuso). Grupos de 1–5; grupo 36 exibia apenas Fernando dos Santos Motta. Conferir inclusão dos colegas pessoalmente. Aviso de entregas até três dias após prazo: até 70% da nota.
 
-A seção 3 referencia duas imagens em `/pluginfile.php/1569499/mod_assign/sectionhtml/11232/`, `image.png` e `image%20%281%29.png`. Estavam quebradas e a abertura autenticada retornou “Sinto muito, o arquivo não foi encontrado”. Os pesos da rubrica não puderam ser confirmados, e não foram inventados. Nenhuma regra específica de IA foi identificada no texto acessível; verificar também normas institucionais externas.
+A seção 3 referencia duas imagens em `/pluginfile.php/1569499/mod_assign/sectionhtml/11782/`, `image.png` e `image%20%281%29.png`. Estavam quebradas e a abertura autenticada retornou “Sinto muito, o arquivo não foi encontrado”. Os pesos da rubrica não puderam ser confirmados, e não foram inventados. Nenhuma regra específica de IA foi identificada no texto acessível; verificar também normas institucionais externas.
 
-Esta publicação cobre os requisitos atribuídos a Fernando e a Caetano (indicadores, erros absoluto e relativo, ponto flutuante, previsão simples e MAE/MSE/RMSE/R² com interpretação); as demais partes seguem os contratos de `docs/interfaces.md`. Não é ZIP final, relatório completo nem submissão FIAP.
+Esta publicação contém os quatro módulos implementados e o relatório conjunto. A suíte corrigida tem 59 testes aprovados. O vídeo será gravado por Caetano; não há URL real nem `link_video.txt`. O pacote preparado é de pré-entrega, não uma submissão completa. Consulte `PRE_ENTREGA.md`.

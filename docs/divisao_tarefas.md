@@ -9,6 +9,6 @@
 
 Cada integrante documenta e testa seu módulo. Relatório final e revisão são coletivos; não há atribuição da consolidação documental à Mylena. Fernando integra as interfaces entregues sem assumir a implementação dos algoritmos dos colegas.
 
-Sequência: aprovar contrato → CSV disponível → frentes em paralelo por cada integrante → integrar análise/heap/trie → reunir seções e testar o fluxo → ensaiar/gravar vídeo real inferior a 5 minutos → conferir URL Não listado e ZIP → entrega pessoal no portal. A gravação/publicação e a submissão não foram feitas.
+Estado atual: CSV, análise, heap e trie integrados; relatório conjunto publicado; 59 testes passando. Caetano gravará o vídeo. Ainda é necessário validar a URL real do YouTube Não listado (até cinco minutos), incluir `link_video.txt`, conferir o ZIP e realizar a entrega no portal. Gravação/publicação e submissão não foram feitas nesta revisão.
 
-Caetano entregou sua parte em `modulos/analise.py`, com testes em `tests/test_caetano.py` e seção técnica em `docs/relatorio_caetano.md`. Cada integrante atualiza o estado da própria parte. Não há delegação automatizada aos outros integrantes nem comunicação enviada por este repositório.
+Os quatro integrantes do SCIC estão confirmados no relatório e no histórico publicado: Fernando, Joedson, Caetano e Mylena. A composição documental não comprova a inclusão no grupo do portal, que deve ser conferida separadamente.

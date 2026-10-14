@@ -1,1 +1,1 @@
-"""Interfaces pendentes dos colegas. Cada integrante implementa, documenta e testa a sua."""
+"""Módulos implementados: análise (Caetano), alertas (Joedson) e consultas (Mylena)."""

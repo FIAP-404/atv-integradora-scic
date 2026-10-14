@@ -87,5 +87,5 @@ python -c "from dados import carregar; from modulos.analise import demonstrar; d
 2. Faça o upload no YouTube com visibilidade **Não listado**.
 3. Abra o link numa janela anônima para confirmar que funciona.
 4. Crie `link_video.txt` na raiz do projeto, só com a URL.
-5. Monte o ZIP com `codigo_fonte.py`, `dados_aurora_siger.csv`, `relatorio_tecnico.pdf`, `README.md` e `link_video.txt`. Recomendo incluir também `dados.py`, `dispositivos.py`, `gerar_dados.py`, `modulos/` e `tests/`, porque o `codigo_fonte.py` depende deles para rodar.
+5. Monte o ZIP com `codigo_fonte.py`, `dados_aurora_siger.csv`, `relatorio_tecnico.pdf`, `README.md` e `link_video.txt`. É obrigatório incluir também `dados.py`, `dispositivos.py`, `gerar_dados.py`, `modulos/` (e manter `tests/` para reprodução), porque o `codigo_fonte.py` depende deles para rodar.
 6. Entregue no portal antes de **23h59 de hoje (13/10)**. Confira se os quatro integrantes estão no grupo 36.

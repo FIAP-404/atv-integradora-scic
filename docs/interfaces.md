@@ -1,6 +1,6 @@
-# Contrato de integração — proposta v1
+# Contrato de integração — implementação atual
 
-A infraestrutura de Fernando e a análise de Caetano estão implementadas. Os contratos ainda não entregues são pontos explícitos de integração e levantam `NotImplementedError`. Cada responsável implementa, documenta e testa seu próprio módulo.
+A infraestrutura de Fernando, a análise de Caetano, o heap de Joedson e a trie de Mylena estão implementados e integrados. A revisão de integração preserva os algoritmos e a responsabilidade de cada integrante.
 
 ## Registro base
 
@@ -36,15 +36,15 @@ Manter ids e campos de origem nos registros de saída; acrescentar `latencia_pre
 
 `priorizar(registros_analisados) -> fila`.
 
-A fila disponibiliza `inserir(alerta)`, `retirar() -> dict` e `__len__() -> int`. O alerta mantém `id`, `modulo`, `ciclo` e acrescenta `prioridade`, `justificativa`; campos adicionais podem ser definidos/documentados por Joedson. Definir limiar, criticidade, desempate e comportamento de fila vazia (proposta: `IndexError`). O menu verifica tamanho e demonstra uma retirada do mais urgente. Heapify-up/down e explicação da vantagem sobre lista são responsabilidade do módulo, ainda pendente.
+A fila disponibiliza `inserir(alerta)`, `retirar() -> dict` e `__len__() -> int`. O alerta mantém `id`, `modulo`, `ciclo` e acrescenta `prioridade`, `justificativa`, `tipo`, `mensagem`, `nivel` e `essencialidade`. O max-heap usa heapify-up/down; retirar de fila vazia lança `IndexError`. Desempates usam essencialidade, ciclo e id. O menu demonstra a retirada do alerta mais urgente. A comparação com lista e a discussão de gestão inteligente estão implementadas e documentadas em `docs/relatorio_joedson.md`.
 
-Depende da análise para usar os erros. Pode ser preparado com fixtures sintéticas de mesmo esquema, sem esperar o modelo final. Discussão de sensores, monitoramento, redundância, automação, manutenção preditiva e microrredes deve partir dos resultados reais depois da integração.
+A demonstração recebe a análise real de Caetano; as fixtures isoladas dos testes de Joedson continuam próprias para verificar o heap independentemente do modelo.
 
 ## Mylena — modulos/consultas.py
 
 `construir_indice(registros) -> trie`; `trie.buscar(prefixo) -> list[int]`.
 
-Retornar **ids do campo id**, não posições na lista. Proposta: indexar módulo e código hexadecimal; ignorar caixa/acentos de nomes; prefixo ausente retorna lista vazia, vazio retorna todos os ids; não duplicar resultados. O menu mapeia os ids de volta aos registros e preserva a ordem de ciclo/id. A implementação efetiva da trie e seus testes/documentação são de Mylena. Ela também documenta a reflexão social/cultural/sustentável conectada ao sistema, com pelo menos três aspectos do enunciado.
+Retornar **ids do campo id**, não posições na lista. Implementado: indexa módulo e código hexadecimal; ignorar caixa/acentos de nomes; prefixo ausente retorna lista vazia, vazio retorna todos os ids; não duplicar resultados. O menu mapeia os ids de volta aos registros e preserva a ordem de ciclo/id. A implementação efetiva da trie e seus testes/documentação são de Mylena. Ela também documenta a reflexão social/cultural/sustentável conectada ao sistema, com pelo menos três aspectos do enunciado.
 
 ## Fernando — infraestrutura
 
@@ -52,6 +52,6 @@ Retornar **ids do campo id**, não posições na lista. Proposta: indexar módul
 
 `converter_codigo(int) -> dict`: decimal, binario, hexadecimal. `calcular_eletricidade(V,A) -> dict`: potencia_w, resistencia_equivalente_ohm (None se I=0). Resistência é apenas hipótese equivalente resistiva, não modelo de um transmissor real.
 
-## Verificação antes de integrar
+## Verificação integrada
 
-Cada responsável entrega função executável, teste e documentação do próprio módulo; o teste do menu com mocks confirma somente passagem de argumentos. Depois, todos executam suas suítes juntas e fazem uma demonstração integrada. Conferir ausência de vazamento treino/teste, ordem de urgência, ids da trie, unidades e explicação das limitações. Consolidar o relatório em conjunto, sem atribuir sua escrita à Mylena. A análise de Caetano está entregue; as demais partes têm o estado declarado por seus responsáveis.
+Os 59 testes passaram após atualização dos testes obsoletos de Fernando. A evidência reproduzível está em `docs/testes_integrados.txt`; os testes de encaminhamento com mocks são distintos dos testes reais dos módulos. O relatório conjunto está em `relatorio_tecnico.pdf`. Vídeo e URL real continuam pendentes de Caetano; ver `PRE_ENTREGA.md`.

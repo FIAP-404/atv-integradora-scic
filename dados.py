@@ -48,6 +48,6 @@ def carregar(caminho):
 
 
 def consultar(registros, modulo='', ciclo=None):
-    """Consulta básica por trecho do nome; NÃO substitui a trie pendente de Mylena."""
+    """Consulta básica por trecho do nome; NÃO substitui a trie implementada por Mylena."""
     return [r for r in registros if modulo.casefold() in r['modulo'].casefold()
             and (ciclo is None or r['ciclo'] == ciclo)]

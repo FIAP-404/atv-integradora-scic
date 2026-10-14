@@ -1,29 +1,6 @@
-# Saída real de: python -c "from dados import carregar; from modulos.consultas import demonstrar; demonstrar(carregar('dados_aurora_siger.csv'), 'docs/exemplo_mylena.txt')"
-
-SCIC - TRIE (busca por prefixo) - dados inteiramente simulados
-Base carregada: 180 registros.
-Chaves distintas indexadas: 12 (nomes de módulos + códigos hexadecimais de sensores).
-Caracteres somados das chaves: 73; nós criados na trie: 70 (a diferença é o prefixo compartilhado).
-
-Código do sensor em decimal e em hexadecimal (a chave usada na trie):
-  Agricultura: 176 (decimal) = B0 (hex)
-  Comunicação: 192 (decimal) = C0 (hex)
-  Dados: 240 (decimal) = F0 (hex)
-  Habitação: 160 (decimal) = A0 (hex)
-  Laboratório: 208 (decimal) = D0 (hex)
-  Suporte Médico: 224 (decimal) = E0 (hex)
-
-Busca 'com': 30 registro(s); ids: 3, 9, 15, 21, 27 ...; módulos: Comunicação
-Busca 'COMUNICAÇÃO': 30 registro(s); ids: 3, 9, 15, 21, 27 ...; módulos: Comunicação
-Busca 'lab': 30 registro(s); ids: 4, 10, 16, 22, 28 ...; módulos: Laboratório
-Busca 'su': 30 registro(s); ids: 5, 11, 17, 23, 29 ...; módulos: Suporte Médico
-Busca 'c0': 30 registro(s); ids: 3, 9, 15, 21, 27 ...; módulos: Comunicação
-Busca 'd': 60 registro(s); ids: 4, 6, 10, 12, 16 ...; módulos: Dados, Laboratório
-Busca 'xyz': 0 registro(s); ids: -; módulos: -
-Busca '' (vazio): 180 registro(s); ids: 1, 2, 3, 4, 5 ...; módulos: Agricultura, Comunicação, Dados, Habitação, Laboratório, Suporte Médico
-
-Observações:
-  - A busca ignora acentos e maiúsculas: "com" e "COMUNICAÇÃO" vêm da mesma chave "comunicacao".
-  - Um prefixo curto pode casar com nome de módulo e com código hexadecimal ao mesmo tempo
-    (ex.: "d" casa com o módulo Dados e com o código D0); cada id aparece só uma vez.
-  - Prefixo inexistente retorna lista vazia; prefixo vazio retorna todos os ids.
+Comando: python3 -c "from codigo_fonte import Aplicacao; a=Aplicacao(); [(print(p, [r['id'] for r in a.buscar_prefixo(p)])) for p in ('com', 'COMUNICAÇÃO', 'c0', 'inexistente', '')]"
+com [3, 9, 15, 21, 27, 33, 39, 45, 51, 57, 63, 69, 75, 81, 87, 93, 99, 105, 111, 117, 123, 129, 135, 141, 147, 153, 159, 165, 171, 177]
+COMUNICAÇÃO [3, 9, 15, 21, 27, 33, 39, 45, 51, 57, 63, 69, 75, 81, 87, 93, 99, 105, 111, 117, 123, 129, 135, 141, 147, 153, 159, 165, 171, 177]
+c0 [3, 9, 15, 21, 27, 33, 39, 45, 51, 57, 63, 69, 75, 81, 87, 93, 99, 105, 111, 117, 123, 129, 135, 141, 147, 153, 159, 165, 171, 177]
+inexistente []
+ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180]

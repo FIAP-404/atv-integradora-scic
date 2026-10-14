@@ -114,12 +114,18 @@ class AplicacaoTest(unittest.TestCase):
         app.recarregar(BASE/'dados_aurora_siger.csv')
         self.assertIsNone(app.resultado_analise)
 
-    def test_interfaces_reais_continuam_pendentes(self):
+    def test_trie_real_retorna_registros_corretos_sem_alterar_base(self):
         app = Aplicacao()
-        # Análise/previsão (Caetano) e fila (Joedson) já implementadas; resta a trie.
-        for acao in (lambda: app.buscar_prefixo('com'),):
-            with self.assertRaises(NotImplementedError):
-                acao()
+        originais = [dict(r) for r in app.registros]
+        ids_comunicacao = list(range(3, 181, 6))
+        for prefixo in ('com', 'COMUNICAÇÃO', 'comunicacao', 'c0', 'C0'):
+            with self.subTest(prefixo=prefixo):
+                resultado = app.buscar_prefixo(prefixo)
+                self.assertEqual([r['id'] for r in resultado], ids_comunicacao)
+                self.assertTrue(all(r['modulo'] == 'Comunicação' for r in resultado))
+        self.assertEqual(app.buscar_prefixo('inexistente'), [])
+        self.assertEqual(app.buscar_prefixo(''), originais)
+        self.assertEqual(app.registros, originais)
 
     def test_encaminha_interfaces_sem_implementar_modulos(self):
         app = Aplicacao()
@@ -142,10 +148,10 @@ class AplicacaoTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'retorno'):
                 app.analisar()
 
-    def test_demo_e_menu_tratam_pendencias_e_entrada_invalida(self):
+    def test_demo_e_menu_executam_trie_e_tratam_entrada_invalida(self):
         app = Aplicacao()
         saida = io.StringIO()
-        entradas = ['9', '3', 'texto', '4', '7', 'com', '8', '0']
+        entradas = ['9', '3', 'texto', '4', '7', 'com', '7', 'inexistente', '8', '0']
         with patch('builtins.input', side_effect=entradas), patch('sys.stdout', saida):
             menu(app)
             demonstrar(app)
@@ -153,8 +159,12 @@ class AplicacaoTest(unittest.TestCase):
         self.assertIn('Opção inválida', texto)
         self.assertIn('Não foi possível executar', texto)
         self.assertIn('inclinacao_ms_por_pct', texto)  # opção 4: resumo real de Caetano
-        self.assertIn('Mylena:', texto)
-        self.assertIn('PENDENTE', texto)
+        self.assertIn('30 encontrados; exibindo até 8.', texto)
+        self.assertIn('#3 | ciclo 1 | Comunicação | sensor 192', texto)
+        self.assertIn('#45 | ciclo 8 | Comunicação | sensor 192', texto)
+        self.assertIn('0 encontrados; exibindo até 8.', texto)
+        self.assertNotIn('PENDENTE', texto)
+        self.assertNotIn('NotImplementedError', texto)
         self.assertIn('6.6780 W', texto)
 
     def test_cli_de_outro_diretorio_e_erro_legivel(self):

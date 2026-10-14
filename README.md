@@ -76,3 +76,13 @@ Os registros e resultados representam uma simulação didática. A latência é 
 ## Documentação
 
 Os relatórios individuais, exemplos de saída, contratos de integração e registros de testes estão na pasta [`docs/`](docs/). A documentação de cada módulo detalha as regras adotadas, os resultados e as limitações da simulação.
+
+## Equipe e verificação integrada
+
+Fernando dos Santos Motta (RM570046), Joedson da Silva Souza (RM573981), Caetano de Medeiros Bona (RM569262) e Mylena Ramalho da Silva Torquato (RM572383).
+
+A suíte completa corrigida passou com **59 testes**: 13 de Fernando, 24 de Caetano, 13 de Joedson e 9 de Mylena. Ver [`docs/testes_integrados.txt`](docs/testes_integrados.txt). O relatório conjunto está em [`relatorio_tecnico.pdf`](relatorio_tecnico.pdf).
+
+## Estado da entrega
+
+**Pré-entrega: vídeo e URL real pendentes de Caetano.** Os módulos e o relatório estão disponíveis, mas `link_video.txt` só deve ser criado quando houver a URL real e verificada do vídeo YouTube Não listado, de até cinco minutos. Veja [`PRE_ENTREGA.md`](PRE_ENTREGA.md) para montar o pacote final. A existência do repositório ou do ZIP de pré-entrega não significa que o trabalho foi submetido no portal.

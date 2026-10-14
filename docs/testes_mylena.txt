@@ -1,14 +1,14 @@
-test_busca_por_codigo_hexadecimal (tests.test_mylena.IndiceTest.test_busca_por_codigo_hexadecimal) ... ok
-test_busca_por_modulo_ignora_acento_e_caixa (tests.test_mylena.IndiceTest.test_busca_por_modulo_ignora_acento_e_caixa) ... ok
-test_integracao_com_a_aplicacao_preserva_ordem_de_ciclo_e_id (tests.test_mylena.IndiceTest.test_integracao_com_a_aplicacao_preserva_ordem_de_ciclo_e_id) ... ok
-test_registro_incompleto_e_rejeitado (tests.test_mylena.IndiceTest.test_registro_incompleto_e_rejeitado) ... ok
-test_retorna_ids_do_csv_unicos_e_vazio_retorna_todos (tests.test_mylena.IndiceTest.test_retorna_ids_do_csv_unicos_e_vazio_retorna_todos) ... ok
-test_remove_acentos_e_caixa (tests.test_mylena.NormalizarTest.test_remove_acentos_e_caixa) ... ok
-test_ausente_vazio_e_sem_duplicados (tests.test_mylena.TrieTest.test_ausente_vazio_e_sem_duplicados) ... ok
-test_prefixo_invalido (tests.test_mylena.TrieTest.test_prefixo_invalido) ... ok
-test_prefixos_compartilham_caminho (tests.test_mylena.TrieTest.test_prefixos_compartilham_caminho) ... ok
+test_busca_por_codigo_hexadecimal (test_mylena.IndiceTest.test_busca_por_codigo_hexadecimal) ... ok
+test_busca_por_modulo_ignora_acento_e_caixa (test_mylena.IndiceTest.test_busca_por_modulo_ignora_acento_e_caixa) ... ok
+test_integracao_com_a_aplicacao_preserva_ordem_de_ciclo_e_id (test_mylena.IndiceTest.test_integracao_com_a_aplicacao_preserva_ordem_de_ciclo_e_id) ... ok
+test_registro_incompleto_e_rejeitado (test_mylena.IndiceTest.test_registro_incompleto_e_rejeitado) ... ok
+test_retorna_ids_do_csv_unicos_e_vazio_retorna_todos (test_mylena.IndiceTest.test_retorna_ids_do_csv_unicos_e_vazio_retorna_todos) ... ok
+test_remove_acentos_e_caixa (test_mylena.NormalizarTest.test_remove_acentos_e_caixa) ... ok
+test_ausente_vazio_e_sem_duplicados (test_mylena.TrieTest.test_ausente_vazio_e_sem_duplicados) ... ok
+test_prefixo_invalido (test_mylena.TrieTest.test_prefixo_invalido) ... ok
+test_prefixos_compartilham_caminho (test_mylena.TrieTest.test_prefixos_compartilham_caminho) ... ok
 
 ----------------------------------------------------------------------
-Ran 9 tests in 0.022s
+Ran 9 tests in 0.006s
 
 OK

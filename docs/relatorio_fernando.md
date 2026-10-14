@@ -10,7 +10,7 @@ Os milissegundos representam atrasos operacionais didáticos dos módulos; não 
 
 O gerador usa semente 36: carga uniforme 15–95%; latência = 80 + 1,8×carga + deslocamento de módulo + ruído normal de desvio 5 ms + picos de 70 ms quando (ciclo+3×índice do módulo) é múltiplo de 13. Os deslocamentos, na ordem dos módulos acima, são 0, 8, −8, 4, −4 e 12 ms. A tensão é 12 V e a corrente é 0,35+0,005×carga, arredondada a quatro casas. Picos recebem status alerta; Dados no ciclo 17 recebe manutenção programada. Essas regras produzem cenários para análise posterior; não são um modelo de previsão treinado nem políticas de prioridade.
 
-Os códigos de sensor são 160, 176, 192, 208, 224 e 240. A base original foi preservada; o gerador permite reproduzi-la em outro caminho e recusa sobrescrever um destino existente pela CLI. Latência prevista, erros e prioridade não foram preenchidos previamente: serão produzidos pelos módulos dos colegas.
+Os códigos de sensor são 160, 176, 192, 208, 224 e 240. A base original foi preservada; o gerador permite reproduzi-la em outro caminho e recusa sobrescrever um destino existente pela CLI. Latência prevista, erros e prioridade não foram preenchidos previamente: são produzidos pelos módulos integrados dos colegas.
 
 ## Leitura e validação
 
@@ -30,14 +30,16 @@ A aritmética usa floats; arredonda apenas a apresentação dos resultados e ver
 
 ## Menu e integração
 
-`codigo_fonte.py` carrega automaticamente a base ao lado do código e permite carregar outro CSV, consultar registros e exibir bases/eletricidade. Opções de análise, previsão, heap e trie chamam assinaturas documentadas em `docs/interfaces.md`. As interfaces atualmente levantam `NotImplementedError`, apresentado como pendência legível; nenhum algoritmo dessas frentes foi implementado por Fernando nesta versão.
+`codigo_fonte.py` carrega automaticamente a base ao lado do código e permite carregar outro CSV, consultar registros e exibir bases/eletricidade. Opções de análise, previsão, heap e trie chamam assinaturas documentadas em `docs/interfaces.md`. Todas essas interfaces estão implementadas: análise e previsão por Caetano, heap por Joedson e trie por Mylena. Fernando mantém a infraestrutura e os testes de integração, preservando os algoritmos dos colegas.
 
 As funções dos colegas recebem cópias para preservar a base original. Análise bem-sucedida é guardada para previsão/heap e removida ao trocar dados. Resultado deve ser lista de registros enriquecidos e resumo como dicionário. Trie retorna ids públicos; a infraestrutura resolve esses ids para mostrar registros, eliminando repetição de resultados. Cada colega é responsável por validar seu retorno, testar e documentar seu próprio algoritmo.
 
 ## Evidências e limites
 
-Comando executado: `python3 -m unittest discover -s tests -v` — 13 testes passaram. Há verificação da reprodução byte a byte da base, consulta/ordenação, rejeição de dados inválidos/duplicados/vazios/colunas inconsistentes, aceitação de zero, conversões conhecidas, potência/resistência e casos não finitos, recarga transacional, cache, menu/erros/pendências e CLI fora da pasta do projeto. Mocks testam apenas o encaminhamento das interfaces, sem provar funcionamento dos módulos ausentes. As próprias interfaces reais foram verificadas como ainda pendentes.
+Comando da suíte completa: `python3 -m unittest discover -s tests -v` — **59 testes passaram** após a atualização dos dois testes de integração obsoletos. A saída está em `docs/testes_integrados.txt`. São 13 testes de Fernando, 24 de Caetano, 13 de Joedson e 9 de Mylena; as saídas individuais estão em `docs/testes_<integrante>.txt`.
 
-`python3 codigo_fonte.py --demo` foi executado e a saída real está em `docs/exemplo_fernando.txt`. A demonstração mostra dados, consulta básica, bases, eletricidade e pendências. Não há testes de modelo, heap ou trie realizados nesta versão; esses serão entregues pelos colegas.
+Os 13 testes de Fernando cobrem dados, bases, eletricidade, recarga transacional, encaminhamento com mocks, CLI fora da pasta e a integração real da trie com o menu. A busca verifica ids esperados, caixa/acentos, hexadecimal, prefixo ausente/vazio e preservação dos registros. Mocks continuam verificando somente o encaminhamento, sem substituir os testes reais.
 
-Falta integrar os três módulos, combinar as seções do relatório em conjunto, verificar requisitos completos, gravar/publicar o vídeo e montar/enviar o ZIP final. Nenhuma consolidação documental foi atribuída à Mylena. A atividade inteira não está concluída.
+`python3 codigo_fonte.py --demo` produz `docs/exemplo_fernando.txt`: dados, consulta básica, bases e eletricidade. Análise, previsão, heap e trie são acessíveis pelo menu; `--demo` é apenas a demonstração curta.
+
+Os três módulos estão integrados e o relatório conjunto está em `relatorio_tecnico.pdf`. A gravação do vídeo foi atribuída a Caetano. Ainda faltam sua URL real, validação da duração/visibilidade e inclusão de `link_video.txt` no ZIP antes da submissão. Nenhuma submissão foi realizada nesta revisão.

@@ -1,8 +1,8 @@
 test_cli_de_outro_diretorio_e_erro_legivel (test_fernando.AplicacaoTest.test_cli_de_outro_diretorio_e_erro_legivel) ... ok
-test_demo_e_menu_tratam_pendencias_e_entrada_invalida (test_fernando.AplicacaoTest.test_demo_e_menu_tratam_pendencias_e_entrada_invalida) ... ok
+test_demo_e_menu_executam_trie_e_tratam_entrada_invalida (test_fernando.AplicacaoTest.test_demo_e_menu_executam_trie_e_tratam_entrada_invalida) ... ok
 test_encaminha_interfaces_sem_implementar_modulos (test_fernando.AplicacaoTest.test_encaminha_interfaces_sem_implementar_modulos) ... ok
-test_interfaces_reais_continuam_pendentes (test_fernando.AplicacaoTest.test_interfaces_reais_continuam_pendentes) ... ok
 test_recarregar_transacional_e_invalida_cache (test_fernando.AplicacaoTest.test_recarregar_transacional_e_invalida_cache) ... ok
+test_trie_real_retorna_registros_corretos_sem_alterar_base (test_fernando.AplicacaoTest.test_trie_real_retorna_registros_corretos_sem_alterar_base) ... ok
 test_base_coerente_e_reproduzivel (test_fernando.DadosTest.test_base_coerente_e_reproduzivel) ... ok
 test_consulta_por_modulo_e_ciclo (test_fernando.DadosTest.test_consulta_por_modulo_e_ciclo) ... ok
 test_ordena_sem_modificar_medicoes (test_fernando.DadosTest.test_ordena_sem_modificar_medicoes) ... ok
@@ -13,6 +13,6 @@ test_conversao_conhecida_e_zero (test_fernando.DispositivosTest.test_conversao_c
 test_potencia_resistencia_e_corrente_zero (test_fernando.DispositivosTest.test_potencia_resistencia_e_corrente_zero) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 0.080s
+Ran 13 tests in 0.116s
 
 OK

@@ -77,9 +77,9 @@ Numa lista simples, cada consulta compara o prefixo com os 180 registros, e o cu
 
 ### Testes e evidências
 
-- `python3 -m unittest tests.test_mylena -v`: **10 testes passaram**. Eles cobrem a normalização, prefixos compartilhados, prefixo ausente e vazio, ausência de duplicados, busca por módulo (com acento e caixa diferentes) e por código hexadecimal, rejeição de registros incompletos, a integração com a aplicação e a função de demonstração.
-- `python3 -m unittest discover -s tests -v`: **60 testes passaram** na suíte completa.
-- A demonstração com a base real foi gerada por `demonstrar(...)` e está em `docs/exemplo_mylena.txt`.
+- `python3 -m unittest discover -s tests -p test_mylena.py -v`: **9 testes passaram**. Eles cobrem a normalização, prefixos compartilhados, prefixo ausente e vazio, ausência de duplicados, busca por módulo (com acento e caixa diferentes) e por código hexadecimal, rejeição de registros incompletos, e a integração com a aplicação.
+- `python3 -m unittest discover -s tests -v`: **59 testes passaram** na suíte completa.
+- A demonstração com a base real usa `Aplicacao.buscar_prefixo`; o comando reproduzível e a saída estão em `docs/exemplo_mylena.txt`. Não existe função `demonstrar` em `modulos/consultas.py`.
 
 ## 1.8 Reflexão social, cultural e sustentável
 

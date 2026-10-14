@@ -2,7 +2,7 @@
 
 Seção de Joedson para o relatório conjunto. Código em `modulos/alertas.py`; testes em `tests/test_joedson.py`.
 
-> **Números provisórios.** A análise de Caetano (latência prevista e erros) ainda não está integrada. Os resultados abaixo usam uma **análise provisória, só de teste**: latência prevista = 80 + 1,8 × carga, a parte determinística da regra do gerador. Depois da integração, rodar `demonstrar(...)` com a saída real de `analise.analisar` e atualizar os valores.
+> **Resultados integrados.** Os números abaixo foram atualizados com a saída real de `analise.analisar`, de Caetano. A demonstração reproduzível está em `docs/exemplo_joedson.txt`; as fixtures unitárias originais permanecem isoladas nos testes.
 
 ## 1.4 Priorização de alertas com heap
 
@@ -53,16 +53,16 @@ Custos: inserir e retirar custam O(log n); consultar o topo custa O(1).
 
 `FilaAlertas` é apenas a "casca" pedida pelo contrato do menu. Toda a lógica está nas funções de heap. Retirar de uma fila vazia lança `IndexError`, como propõe o contrato.
 
-### Resultado (provisório)
+### Resultado integrado
 
-Dos 180 registros, **16 viraram alertas**. O mais urgente, que fica na raiz do heap, é o **#117 Comunicação, ciclo 20, com 90 pontos**:
+Dos 180 registros, **15 viraram alertas**. O mais urgente, que fica na raiz do heap, é o **#117 Comunicação, ciclo 20, com 89,28 pontos**:
 
 - status alerta: +40;
 - comunicação: +25;
-- latência 51 % acima do previsto: +20;
+- latência 48 % acima do previsto: +19,28;
 - aguardando: +5.
 
-Em seguida vêm os picos do Suporte Médico (88,3 e 88,0 pontos).
+Em seguida vêm os picos do Suporte Médico (88,0 e 87,6 pontos).
 
 O vetor não fica totalmente ordenado, porque o heap só garante que cada pai é mais urgente que os filhos. Mesmo assim, a raiz é sempre o mais urgente.
 
@@ -84,7 +84,7 @@ O módulo segue as três camadas do Capítulo 12:
 - **Comunicação:** o enlace do módulo Comunicação.
 - **Processamento:** o heap e as regras abaixo.
 
-**Monitoramento contínuo.** `monitoramento_continuo` lê os 30 ciclos em ordem e insere cada anomalia na fila. Houve **1 detecção antecipada**: o #24 (Dados, ciclo 4) ainda estava "ativo", mas a latência já estava 22 % acima do previsto.
+**Monitoramento contínuo.** `monitoramento_continuo` lê os 30 ciclos em ordem e insere cada anomalia na fila. Houve **0 detecções antecipadas** nesta base com o modelo integrado: todos os registros identificados já estavam marcados como alerta ou manutenção.
 
 **Automação com validação humana.** `atender_proximo` mostra a justificativa e a ação sugerida, e pede a confirmação do operador com `input` (s/n). Se a ação for rejeitada, ou se a resposta for inválida, o alerta volta para a fila. A decisão final é sempre humana.
 
@@ -101,7 +101,7 @@ Nesta base, **nenhum módulo tem tendência confirmada**. O Laboratório aparece
 **Microrredes.** A demanda no ciclo 30 é a soma de P = V × I, cálculo de Fernando: **48,36 W**. Com 80 % disponível (38,69 W), por exemplo numa tempestade de poeira que reduz a geração solar, o módulo entra em contingência, à semelhança da operação ilhada do Capítulo 12:
 
 - Suporte Médico, Comunicação e Habitação são preservados.
-- Um **segundo heap**, com a regra "menos essencial primeiro", coloca em modo econômico o Laboratório (−4,83 W), a Agricultura (−3,08 W) e os Dados (−3,52 W).
+- Um **segundo heap**, com a regra "menos essencial primeiro", coloca em modo econômico o Laboratório (−4,83 W), os Dados (−3,52 W) e a Agricultura (−3,08 W).
 - A demanda cai para **36,93 W**.
 
 ## Limitações
@@ -114,5 +114,6 @@ Nesta base, **nenhum módulo tem tendência confirmada**. O Laboratório aparece
 
 ## Evidências
 
-- Comando de teste: `python3 -m unittest discover -s tests -v`. Os **26 testes passaram** (13 de Fernando e 13 de Joedson). A saída está em `docs/testes_joedson.txt`.
-- A demonstração com a análise provisória está em `docs/exemplo_joedson.txt`.
+- `python3 -m unittest discover -s tests -p test_joedson.py -v`: **13 testes passaram**, saída em `docs/testes_joedson.txt`.
+- `python3 -m unittest discover -s tests -v`: **59 testes passaram**, saída em `docs/testes_integrados.txt`.
+- Demonstração integrada: `python3 -c "from dados import carregar; from modulos import analise,alertas; alertas.demonstrar(analise.analisar(carregar('dados_aurora_siger.csv'))['registros'])"`. Saída em `docs/exemplo_joedson.txt`.
