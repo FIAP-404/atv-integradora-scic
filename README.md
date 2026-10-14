@@ -1,66 +1,78 @@
-# SCIC — parte de Fernando
+# SCIC — Sistema de Comunicação Interplanetária
 
-Projeto Integrador da Fase 6 da FIAP: Sistema de Comunicação Interplanetária da Colônia Aurora Siger. **Este repositório reúne as partes já entregues e os contratos de integração das partes pendentes; o estado de cada uma está na tabela abaixo. O trabalho completo ainda está pendente.**
+Projeto integrador da Fase 6 da FIAP. O protótipo simula o monitoramento da colônia Aurora Siger com dados operacionais sintéticos, análise de latência, previsão, priorização de alertas e busca eficiente por prefixo.
 
-## Estado
+## Funcionalidades
 
-| Parte | Responsável | Estado |
-|---|---|---|
-| Dados simulados, leitura/validação, consulta básica, menu e estrutura de integração | Fernando | Implementados e testados |
-| Bases numéricas, entradas/saídas e eletricidade básica | Fernando | Implementados, documentados e testados |
-| Indicadores, erros, previsão e métricas | Caetano | Implementados, documentados e testados |
-| Heap, prioridades e gestão inteligente | Joedson | Interface pendente |
-| Trie e reflexão social/cultural/sustentável | Mylena | Interface pendente |
-| Relatório conjunto, demonstração completa e ZIP final | Todos | Pendentes de integração e revisão |
+- Leitura, validação e consulta de registros em CSV, com opção para carregar outra base.
+- Geração reproduzível de dados sintéticos para seis módulos da colônia.
+- Conversão de códigos de sensores entre decimal, binário e hexadecimal.
+- Cálculos de potência elétrica (`P = V × I`) e resistência equivalente sob hipótese resistiva.
+- Indicadores operacionais e análise de latência, incluindo erros absoluto e relativo, ponto flutuante e métricas MAE, MSE, RMSE e R².
+- Previsão de latência por carga com modelo simples e seleção validada contra uma linha de base.
+- Fila de prioridade implementada com max-heap, critérios explicáveis, desempate e demonstração comparativa com lista.
+- Trie para pesquisar prefixos de nomes de módulos e códigos hexadecimais.
+- Exemplos de monitoramento contínuo, manutenção preditiva, redundância e gestão de microrrede.
 
-**Cada integrante documenta e testa seu próprio módulo. Não há atribuição de consolidação documental à Mylena.** Os arquivos de protótipo integral anteriores foram preservados fora deste repositório como rascunhos locais; não foram incluídos nesta publicação.
+## Requisitos
 
-## Executar
+Python 3.10 ou superior. O projeto utiliza apenas a biblioteca padrão do Python.
 
-Requer Python 3.10 ou superior. Somente biblioteca padrão; nenhum pacote ou serviço externo é necessário.
+## Como executar
 
-```sh
-python3 codigo_fonte.py
-python3 codigo_fonte.py --demo
-python3 -m unittest discover -s tests -v
+Na pasta do projeto:
+
+```bash
+python codigo_fonte.py
 ```
 
-A base padrão fica ao lado do código e funciona independentemente do diretório atual. Para carregar outro CSV com o contrato documentado: `python3 codigo_fonte.py --dados caminho.csv`. No menu, a opção 1 permite carregar outra base sem modificar arquivos. Uma leitura inválida preserva a base anterior; leitura válida invalida análises em cache.
+Para executar uma demonstração rápida sem abrir o menu:
 
-- Opção 2: consulta simples por trecho do nome e ciclo. **Não é busca trie.**
-- Opção 3: sensor em decimal/binário/hexadecimal, potência P=V×I e resistência equivalente sob hipótese resistiva.
-- Opções 4–5: análise de Caetano. A opção 4 mostra o resumo (indicadores, divisão dos dados, modelo e métricas) e a opção 5 prevê a latência em ms para uma carga de 0 a 100%.
-- Opções 6–7: pontos de integração de Joedson (heap) e Mylena (trie). Uma parte ainda não entregue informa explicitamente a pendência, sem simular resultado.
-- Opção 8: estado do projeto. Opção 0: sair.
-
-Para reproduzir a mesma base preservando a entregue:
-
-```sh
-python3 gerar_dados.py --destino /tmp/dados_scic_reproduzidos.csv
+```bash
+python codigo_fonte.py --demo
 ```
 
-O comando recusa um destino que já existe. `gerar()` é a função de geração usada pelos testes em diretório temporário. Todas as observações são sintéticas e a semente é 36.
+Para carregar um arquivo CSV diferente:
 
-## Arquivos e contratos
+```bash
+python codigo_fonte.py --dados caminho/para/dados.csv
+```
 
-- `codigo_fonte.py`: entrada principal e integração.
-- `dados.py`, `dados_aurora_siger.csv`, `gerar_dados.py`: parte de dados de Fernando.
-- `dispositivos.py`: conversões e eletricidade.
-- `modulos/analise.py`: análise de Caetano (indicadores, erros, modelo e métricas); testes em `tests/test_caetano.py` e seção em [docs/relatorio_caetano.md](docs/relatorio_caetano.md).
-- `modulos/alertas.py`, `modulos/consultas.py`: somente assinaturas/docstrings e `NotImplementedError`.
-- `tests/test_fernando.py`: testes de Fernando; mocks verificam encaminhamento das interfaces, não algoritmos dos colegas.
-- [docs/interfaces.md](docs/interfaces.md): campos, unidades, assinaturas e dependências.
-- [docs/relatorio_fernando.md](docs/relatorio_fernando.md): seção técnica própria de Fernando.
-- [docs/divisao_tarefas.md](docs/divisao_tarefas.md): divisão atualizada.
-- [docs/requisitos_verificados.md](docs/requisitos_verificados.md): fonte e requisitos oficiais.
-- [docs/testes_fernando.txt](docs/testes_fernando.txt) e [docs/exemplo_fernando.txt](docs/exemplo_fernando.txt): evidências reais da execução local.
+O menu oferece carregamento de dados, consulta por módulo e ciclo, detalhes de dispositivos, análise, previsão, fila de alertas e busca por prefixo. A base padrão `dados_aurora_siger.csv` é localizada em relação ao próprio código, independentemente da pasta de onde o comando for executado.
 
-Cada colega pode substituir seu arquivo de interface por implementação compatível e acrescentar seus testes/documentação. Ninguém deve editar os módulos alheios para apresentar sua parte como concluída.
+## Dados
 
-## Limites e pendências de entrega
+`dados_aurora_siger.csv` contém os registros simulados utilizados pela aplicação. Para gerar outra base:
 
-A base tem 180 registros de seis módulos ao longo de 30 ciclos. Latência em ms é atraso operacional didático; não modela propagação física entre planetas. Potência é elétrica de entrada, não radiada; sem duração em horas não se calcula energia. Sensores/interfaces reais são conceituais.
+```bash
+python gerar_dados.py --destino caminho/para/novo_arquivo.csv
+```
 
-Ainda faltam os módulos dos colegas, avaliação integrada, `relatorio_tecnico.md/pdf` conjunto, vídeo real de até 5 minutos, URL Não listado em `link_video.txt` e ZIP final. Não se incluiu um vídeo ou relatório completo fictício. Conferir integrantes no portal e tabela de pontuação, cujas imagens estavam quebradas na leitura de 12/10/2026.
+O gerador recusa sobrescrever um arquivo existente. A função `gerar()` também pode ser usada diretamente em outros scripts.
 
-Preparação assistida por IA sob revisão de Fernando. Cada integrante deve entender, revisar e explicar sua parte e cumprir as normas institucionais de autoria. A publicação deste código não representa submissão na FIAP.
+## Estrutura do projeto
+
+| Caminho | Conteúdo |
+|---|---|
+| `codigo_fonte.py` | Aplicação principal, integração dos módulos, demonstração e menu interativo. |
+| `dados.py` | Leitura, validação e consulta dos registros. |
+| `dados_aurora_siger.csv` | Base operacional simulada. |
+| `gerar_dados.py` | Geração reproduzível da base sintética. |
+| `dispositivos.py` | Conversões numéricas e cálculos elétricos. |
+| `modulos/analise.py` | Indicadores, divisão temporal, previsão e métricas de erro. |
+| `modulos/alertas.py` | Max-heap, fila de alertas, monitoramento e simulações de gestão. |
+| `modulos/consultas.py` | Trie para busca de prefixos normalizados. |
+| `tests/` | Testes automatizados organizados por módulo e integrante. |
+| `docs/` | Relatórios técnicos, contratos, exemplos de execução, testes e divisão de tarefas. |
+
+## Executar os testes
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Os registros e resultados representam uma simulação didática. A latência é um indicador operacional, não um modelo de propagação física interplanetária. Os cálculos de potência descrevem entrada elétrica; sensores, redes e interfaces são conceituais.
+
+## Documentação
+
+Os relatórios individuais, exemplos de saída, contratos de integração e registros de testes estão na pasta [`docs/`](docs/). A documentação de cada módulo detalha as regras adotadas, os resultados e as limitações da simulação.

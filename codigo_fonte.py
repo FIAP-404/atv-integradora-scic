@@ -1,4 +1,4 @@
-"""SCIC parcial: dados/menu/dispositivos de Fernando e interfaces dos colegas."""
+"""SCIC: Sistema de Comunicação Interplanetária da Colônia Aurora Siger (protótipo)."""
 import argparse
 from copy import deepcopy
 import json
@@ -9,8 +9,6 @@ from dispositivos import converter_codigo, calcular_eletricidade
 from modulos import analise, alertas, consultas
 
 BASE = Path(__file__).resolve().parent
-PENDENCIAS = {'Joedson': 'heap, prioridades, gestão inteligente e documentação/testes do módulo',
-              'Mylena': 'trie, reflexão social/cultural/sustentável e documentação/testes do módulo'}
 
 
 class Aplicacao:
@@ -65,26 +63,18 @@ def mostrar_dispositivo(registro):
     print('Potência elétrica de entrada; não potência radiada nem energia consumida. Não há enlace físico real.')
 
 
-def mostrar_pendencias():
-    print('Estado: parte de Fernando implementada; projeto completo PENDENTE.')
-    for pessoa, tarefa in PENDENCIAS.items():
-        print(f'{pessoa}: {tarefa}.')
-    print('Todos documentam e testam sua própria parte. Integração final, relatório conjunto e vídeo ainda pendentes.')
-
-
 def demonstrar(app):
-    print('SCIC — PARTE DE FERNANDO — dados inteiramente simulados')
+    print('SCIC — Aurora Siger — dados inteiramente simulados')
     print(f'Base carregada e validada: {len(app.registros)} registros.')
     mostrar(app.registros, 3)
-    print('\nConsulta simples: Comunicação, ciclo 1 (a trie ainda está pendente).')
+    print('\nConsulta simples: Comunicação, ciclo 1 (a busca por prefixo com trie está na opção 7 do menu).')
     mostrar(consultar(app.registros, 'Comunicação', 1))
     mostrar_dispositivo(app.registros[0])
-    mostrar_pendencias()
 
 
 def menu(app):
     while True:
-        print('\n1 Carregar CSV | 2 Consultar registros | 3 Bases e eletricidade\n4 Análise [Caetano] | 5 Previsão [Caetano]\n6 Alertas heap [Joedson pendente; depende da análise]\n7 Busca trie [Mylena pendente] | 8 Estado da integração | 0 Sair')
+        print('\n1 Carregar CSV | 2 Consultar registros | 3 Bases e eletricidade\n4 Análise | 5 Previsão\n6 Alertas (heap) | 7 Busca por prefixo (trie) | 0 Sair')
         try:
             opcao = input('Opção: ').strip()
             if opcao == '0':
@@ -114,13 +104,9 @@ def menu(app):
                 else:
                     print('Fila vazia.')
             elif opcao == '7':
-                mostrar(app.buscar_prefixo(input('Prefixo: ')))
-            elif opcao == '8':
-                mostrar_pendencias()
+                mostrar(app.buscar_prefixo(input('Prefixo de módulo ou código hex (ex.: com, c0; vazio=todos): ')))
             else:
                 print('Opção inválida.')
-        except NotImplementedError as exc:
-            print('Integração pendente:', exc)
         except (ValueError, OSError) as exc:
             print('Não foi possível executar a opção:', exc)
         except EOFError:
@@ -130,7 +116,7 @@ def menu(app):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--dados', type=Path, default=BASE/'dados_aurora_siger.csv')
-    parser.add_argument('--demo', action='store_true', help='Demonstra somente a parte implementada de Fernando')
+    parser.add_argument('--demo', action='store_true', help='Demonstração rápida, sem menu')
     args = parser.parse_args()
     try:
         app = Aplicacao(args.dados)
