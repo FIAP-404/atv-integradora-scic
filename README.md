@@ -85,4 +85,4 @@ A suíte completa corrigida passou com **59 testes**: 13 de Fernando, 24 de Caet
 
 ## Estado da entrega
 
-**Pré-entrega: vídeo e URL real pendentes de Caetano.** Os módulos e o relatório estão disponíveis, mas `link_video.txt` só deve ser criado quando houver a URL real e verificada do vídeo YouTube Não listado, de até cinco minutos. Veja [`PRE_ENTREGA.md`](PRE_ENTREGA.md) para montar o pacote final. A existência do repositório ou do ZIP de pré-entrega não significa que o trabalho foi submetido no portal.
+**Pacote atualizado com vídeo real:** `link_video.txt` contém https://youtu.be/RuRdajhuRE4, publicado por Caetano. A página abriu e reproduziu no navegador; o YouTube mostra **Não listado**, com duração de **3 minutos**. Não houve revisão integral do vídeo. Use `SCIC_ENTREGA_COM_VIDEO.zip` na pasta `entregas/` do repositório, com código, módulos, dados, relatório corrigido e link. O antigo ZIP com `VIDEO_PENDENTE` no nome é obsoleto. Veja [`PRE_ENTREGA.md`](PRE_ENTREGA.md) para conteúdo e conferências restantes. A publicação no GitHub não significa que o trabalho foi submetido no portal.
